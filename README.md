@@ -2,5 +2,5 @@
   
 [Just my notes](NOTES.md)  
   
-[Guide 1: Git amd remote repositories](GUIDES/01_GIT_N_REPOSITORIES.md)  
+[Guide 1: Git and remote repositories](GUIDES/01_GIT_N_REPOSITORIES.md)  
   

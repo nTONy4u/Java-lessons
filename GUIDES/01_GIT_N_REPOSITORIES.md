@@ -43,7 +43,7 @@ etc.
   
 5.1 GitHub  
 Переходим на сайт https://github.com/
-Создаем и связываем ключи безопасности (свой и публичный)  
+Создаем и связываем ключи безопасности (свой и публичный) https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent  
 Создаем новый репозиторий на сайте, сразу появится список основных команд  
 ```git init
 git add README.md
@@ -56,7 +56,7 @@ git push -u origin main
 Работаем с ним:  
 0.4 ```git remote add origin git@github.com:YourGitHubName/first-project.git``` // привязываем удаленный к текущему ранее созданному (ввод команды из этой папки должен быть)  
 ```git remote -v``` // проверяем привязку  
-0.5 ```git push -u origin main``` // выгружаем то, что проделали по пп.4.2 4.3 (-u - только для первого раза)  
+0.5 ```git push -u origin master``` / ```git push``` // выгружаем то, что проделали по пп.0.2 0.3 (-u -master/main - название ветки и только для первого раза, далее Git запоминает эту ветку для простой команды push)  
   
   ```git branch``` // посмотреть ветки  
   ```git branch имяНовойВетки``` // создать новую ветку проекта для изменений  
@@ -73,11 +73,20 @@ git push -u origin main
 ```git reset``` // удалить последний коммит (--soft/--soft HEAD~1/--hard HEAD~1)  
 ```git log --merge``` // посмотреть конфликты слияний (к примеру, когда другой успел поправить и заккомить, а ты только поправил)  
   
-  один из вариантов  
+  Когда несколько веток и возник конфликт - наиболее частый конфликт master и main  
+1. git checkout main // откатываем к предыдущему push  
+2. git pull // загрузка из проблемной и слияние с текущей веткой (по сути = git fetch && git merge)
+3. git rebase master // объединяет коммиты  после pull  
+4. git push -f -u origin main // перезапиcываем всю историю main  
+5. git push -d origin master // удаляем ту самую master ветку  
+6. git branch -d master // удаляем локальную master ветку  
+  
+  еще один из вариантов  
   ```git checkout master
 git pull upstream master
 git checkout feature
-git rebase master```
+git rebase master
+```
   
 Работаем с чужими репозиториями:  
 ```git clone https://github.com/AnotherGitHubName/имя_клонируемого_репозитория``` // создаем себе в локальную папку клон чужого (появится в текущей папке // можно копировать специальными ссылками с сайта)  
