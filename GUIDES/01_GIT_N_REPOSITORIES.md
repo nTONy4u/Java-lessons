@@ -98,7 +98,9 @@ git rebase master
   
   обновляемся и устанавливаем необходимое  
   ```sudo apt update
-sudo apt install wget unzip git -y```  
+sudo apt install wget unzip git -y
+```
+  
   Непосредственно работа по настройке  
 ```sudo adduser --system --shell /bin/bash --gecos "User for managing of gogs server" --group --disabled-password --home /home/git git``` создаем нового пользователя без пароля  
   
@@ -108,12 +110,13 @@ sudo apt install wget unzip git -y```
   ```sudo su -c 'su git -c "wget https://dl.gogs.io/0.12.3/gogs_0.12.3_linux_armv7.zip -O ~/gogs_download.zip"'```
   
   разархивируем и удаляем ненужное  
-  ```sudo su -c 'su git -c "unzip ~/gogs_download.zip -d ~/"'  
+  ```sudo su -c 'su git -c "unzip ~/gogs_download.zip -d ~/"'
 sudo su -c 'su git -c "rm ~/gogs_download.zip"'```  
 
 запускаем службу Gogs  
-```sudo wget https://raw.githubusercontent.com/gogs/gogs/main/scripts/systemd/gogs.service -O /lib/systemd/system/gogs.service
+  ```sudo wget https://raw.githubusercontent.com/gogs/gogs/main/scripts/systemd/gogs.service -O /lib/systemd/system/gogs.service
 sudo systemctl enable gogs
 sudo service gogs start
-```  
+```
+  
   Переходим в браузере http://<your-raspbery-ip>:3000/install и следуем шагам установки!  
